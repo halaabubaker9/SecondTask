@@ -11,6 +11,7 @@ body {
     height: 100vh;
     margin: auto;
     margin-top: 70px;
+    /* No need for the margin-top and height, you can use flexbox to center it horizontally and vertically */
     background-color: #fff;
     border:  rgba(128, 128, 128, 0.595);
 }
@@ -21,6 +22,7 @@ form {
     border: solid rgba(128, 128, 128, 0.595) 1px ;
     margin-top: 20px;
     position: relative;
+    /* No need for the position */
     color:  rgba(128, 128, 128, 0.595);
 }
 .checklist {
@@ -32,17 +34,21 @@ form {
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+    /* Nice! Vendor prefixes. Just want to make sure you understand why we are using them. Let me know if you need more explanation */
     display: flex;
     flex-direction: row;
+    /* No need for row. This is the default value */
     align-items: center;
     align-content: space-between;
     padding: 12px;
     margin-right: 5px;
+    /* No need */
 }
 
 
 .container input:checked+label {
     color: #000 ;
+    /* Don't forget to make the icon black as well */
 }
 
 .checklist i {
@@ -60,11 +66,16 @@ form {
 
 .check {
     -webkit-appearance: none;
+    /* Nice! But here you are only supporting the browsers: Chrome and Safari, but not Firefox and Opera */
+    /* You can read more about the prefix vendors */
     height: 20px;
     width: 20px;
     position: relative;
     top: 6px;
     left: 363px;
+    /* This can be done using flexbox or absolute postioning (This one absolute and parent is relative) but I prefer the flexbox as it is easier */
+    /* Most of the time, when you see very big values, then something is wrong */
+    /* Try with it again with a flexbox. */
     transition: 0.10s;
     text-align: center;
     font-weight: 600;
@@ -89,9 +100,13 @@ form {
 
 .check:checked:before {
     content: "✔";
+    /* This is a good idea! Using the pseudo elements to get them over the original input, nice! */
+    /* Another solution is to hide the input and use your own customized styles to show checkmarks, and let the label do the check for you if you added the for attribute to it.*/
+    /* I'm not saying that the idea you did is wrong, it is really great and I'm happy with it. Just saying that you can have another option of doing this. */
 }
 
 input[type=checkbox]:checked + span + .fa{
+    /* Don't forget to remove unused code */
 }
 
 .check:hover {
@@ -101,6 +116,7 @@ input[type=checkbox]:checked + span + .fa{
 }
 
 .header {
+    /* If you take a look at the design, this should be aligned with the form. Always try to make it looks like the design */
     margin:auto;
     width: 90%;
     height: 50px;
@@ -130,11 +146,13 @@ input[type=checkbox]:checked + span + .fa{
 .search {
     margin: auto;
     height: 5%;
+    /* It is not preferable to use percentage here, you can use pixels and the height is known and we don't want it to be related to the screen */
     width: 80%;
     margin-top: 30px;
 }
 .search i {
     margin-left: 65px ;
+    /* As I said before, can you think about it in a different way? Why do I need this number? Maybe there is a better way to do it */
 }
 .search span {
     margin-left: 5px;
